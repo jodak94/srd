@@ -25,7 +25,9 @@ class Documento extends Model
         'grado_academico_id',
         'calidad_participante_id',
         'pdf_path',
-        'qr'
+        'qr',
+        'fecha_inicio',
+        'fecha_fin'
     ];
 
     public static function boot()

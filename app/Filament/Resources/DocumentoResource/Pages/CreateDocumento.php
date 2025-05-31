@@ -9,6 +9,7 @@ use Storage;
 use Log;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Carbon\Carbon;
 
 class CreateDocumento extends CreateRecord
 {
@@ -26,11 +27,17 @@ class CreateDocumento extends CreateRecord
         $background_path = public_path('images/fondo.png');
         $imageData = base64_encode(file_get_contents($background_path));
         $backgroundb64 = 'data:image/png;base64,' . $imageData;
-
+        $fechaInicio = Carbon::parse($record->fecha_emision);
+        $fechaFin = Carbon::parse($record->fecha_fin);
+        $periodo = 'Realizado en el periodo comprendido entre el ' . 
+            $fechaInicio->translatedFormat('j \d\e F \d\e Y') . 
+            ' y el ' . 
+            $fechaFin->translatedFormat('j \d\e F \d\e Y');
         $pdf = \PDF::loadView('pdf.documento', [
             'documento' => $record,
             'qrCode' => $qrCode,
-            'background' => $backgroundb64
+            'background' => $backgroundb64,
+            'periodo' => $periodo,
         ])
         ->setPaper('A4', 'landscape')
         ->setOptions([

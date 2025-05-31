@@ -94,8 +94,7 @@
             <strong>{{ strtoupper($documento->nombre_apellido) }}</strong> con CI Nº: <strong>{{ strtoupper($documento->cic) }}</strong>.
             Por haber culminado satisfactoriamente el {{ $documento->tipoCurso->descripcion }} en
             <strong>{{ strtoupper($documento->nombre_curso) }}</strong>, programa académico habilitado según Resolución N° {{ strtoupper($documento->numero_resolucion) }}.
-            Realizado en el periodo comprendido entre el <strong>{{ $documento->fecha_inicio }}</strong> y el
-            <strong>{{ $documento->fecha_fin }}</strong>, completando un total de {{ $documento->carga_horaria }} horas académicas.
+            {{$periodo}}, completando un total de {{ $documento->carga_horaria }} horas académicas.
         </div>
     </div>
     <div class="footer">

@@ -45,16 +45,14 @@ class DocumentoResource extends Resource
                     TextInput::make('nro_registro')
                     ->default($nuevoRegistro) 
                     ->disabled(),
-                    TextInput::make('anho')
-                        ->numeric()
-                        ->default(now()->year)
-                        ->label('Año'),
+                    TextInput::make('cic')->label('Nro. Documento'),
+                    DatePicker::make('fecha_inicio')->label('Fecha de inicio'),
+                    DatePicker::make('fecha_fin')->label('Fecha fin'),
                     Select::make('semestre')
                         ->options([
                             1 => '1',
                             2 => '2',
-                        ]),
-                    TextInput::make('cic')->label('Nro. Documento'),
+                    ]),
                     TextInput::make('nombre_apellido'),
                     TextInput::make('nombre_curso'),
                     TextInput::make('carga_horaria'),
@@ -78,19 +76,16 @@ class DocumentoResource extends Resource
                         Select::make('calidad_participante_id')
                         ->relationship('calidadParticipante', 'descripcion')
                         ->required(),    
-                    Placeholder::make('')->columnSpan(1),
                     FileUpload::make('resolucion_path')
                         ->label('Archivo Resolución')
                         ->directory('resoluciones')
                         ->preserveFilenames()
-                        ->downloadable()
-                        ->columnSpan(1),        
+                        ->downloadable(),   
                     FileUpload::make('certificado_path')
                         ->label('Archivo Certificado')
                         ->directory('certificados')
                         ->preserveFilenames()
                         ->downloadable()
-                        ->columnSpan(1),
                     ]);
         }
 
