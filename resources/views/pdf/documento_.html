@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Diploma</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+            position: relative;
+            padding: 80px;
+        }
+
+        .signature-line {
+            border-top: 1px solid #000;
+            width: 200px;
+            margin: 0 auto 5px;
+        }
+
+        .qr-code {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 70px;
+        }
+
+        body{
+            background: url(fondo.png) no-repeat;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .content {
+            line-height: 1.6;
+            position: absolute;
+            top: 625px;
+            width: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .content .title{
+            text-align: center;
+            font-size: 32px;
+            width: 70%;
+            margin: 60px auto;
+        }
+
+        .footer {
+            text-align: center;
+            top: 925px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .signatures{
+            position: absolute;
+            top: 1125px;
+            text-align: center;
+        }
+
+        .sec{
+            left: 150px;
+        }
+
+        .dec{
+            left: 525px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <img class="background" src="" alt="QR Code">
+    <img class="qr-code" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png" alt="QR Code">
+    <div class="content">
+        <div class="title">
+            <b>DIPLOMA EN
+            RIESGOS LABORALES, HIGIENE
+            Y MEDICINA DEL TRABAJO</b>
+        </div>
+        <div class="body">
+            Se confiere la presente Certificación Intermedia de Posgrado, a
+            <strong>{{ $documento->nombre_apellido }}</strong> con CI Nº: <strong>{{ $documento->ci }}</strong>.
+            Por haber culminado satisfactoriamente un ciclo de la Maestría en
+            <strong>GERENCIA EN SEGURIDAD Y SALUD OCUPACIONAL</strong>, programa académico habilitado según Resolución N° 712/16.
+            Realizado en el periodo comprendido entre el <strong>{{ $documento->fecha_inicio }}</strong> y el
+            <strong>{{ $documento->fecha_fin }}</strong>, completando un total de 22 créditos académicos (CA-PY),
+            equivalentes a 660 horas académicas.
+        </div>
+    </div>
+    <div class="footer">
+        San Lorenzo, República del Paraguay, {{ $documento->fecha_emision }}
+    </div>
+        <div class="signatures sec">
+            <div class="signature-line"></div>
+            Lic. Sonia Emilce León Cañete<br>Secretaria
+        </div>
+        <div class="signatures dec">
+            <div class="signature-line"></div>
+            Prof. Dr. Ing. Rubén Alcides López Santacruz<br>Decano
+        </div>
+</body>
+</html>
