@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
         --with-freetype \
         --with-jpeg \
     && docker-php-ext-install \
-        pdo pdo_mysql zip gd mbstring exif pcntl
+        pdo pdo_pgsql zip gd mbstring exif pcntl
 
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
