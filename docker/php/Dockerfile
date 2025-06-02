@@ -29,8 +29,8 @@ WORKDIR /var/www
 
 COPY composer.json composer.lock ./
 
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-
 COPY . .
+
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 RUN chown -R www-data:www-data /var/www && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
