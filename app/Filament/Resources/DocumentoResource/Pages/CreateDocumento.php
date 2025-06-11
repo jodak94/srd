@@ -24,7 +24,7 @@ class CreateDocumento extends CreateRecord
         $record = $this->record;
         $uuid = Str::uuid()->toString();
         $qrCode = QrCode::size(300)->generate(route('verificar.documento', ['uuid' => $uuid]));
-        $background_path = public_path('images/fondo.png');
+        $background_path = public_path('images/fondo__.png');
         $imageData = base64_encode(file_get_contents($background_path));
         $backgroundb64 = 'data:image/png;base64,' . $imageData;
         $fechaInicio = Carbon::parse($record->fecha_emision);
