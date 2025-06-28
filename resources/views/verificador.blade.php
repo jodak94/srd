@@ -116,6 +116,7 @@
                 <div class="dato-item">CI: <strong>{{ $documento->cic }}</strong></div>
                 <div class="dato-item">Curso: <strong>{{ $documento->nombre_curso }}</strong></div>
                 <div class="dato-item">Carga Horaria: <strong>{{ $documento->carga_horaria }} hs</strong></div>
+                <div class="dato-item">Nro. registro: <strong>{{ $documento->nro_registro }} hs</strong></div>
             </div>
             <div class="valido">✔ Documento válido y verificado</div>
         </div>

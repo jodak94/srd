@@ -27,7 +27,7 @@ class CreateDocumento extends CreateRecord
         $background_path = public_path('images/fondo__.png');
         $imageData = base64_encode(file_get_contents($background_path));
         $backgroundb64 = 'data:image/png;base64,' . $imageData;
-        $fechaInicio = Carbon::parse($record->fecha_emision);
+        $fechaInicio = Carbon::parse($record->fecha_inicio);
         $fechaFin = Carbon::parse($record->fecha_fin);
         $periodo = 'Realizado en el periodo comprendido entre el ' . 
             $fechaInicio->translatedFormat('j \d\e F \d\e Y') . 

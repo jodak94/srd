@@ -27,7 +27,7 @@
             position: absolute;
             top: 125px;
             right: 275px;
-            width: 70px;
+            width: 90px;
             z-index: 99999;
         }
 
@@ -79,6 +79,12 @@
             left: 525px;
         }
 
+        .nro_registro{
+            position: absolute;
+            top: 1322px;
+            left: 105px;
+        }
+
     </style>
 </head>
 <body>
@@ -100,13 +106,14 @@
     <div class="footer">
         San Lorenzo, República del Paraguay, {{ \Carbon\Carbon::now()->format('d/m/Y') }}
     </div>
-        <div class="signatures sec">
-            <div class="signature-line"></div>
-            Lic. Sonia Emilce León Cañete<br>Secretaria
-        </div>
-        <div class="signatures dec">
-            <div class="signature-line"></div>
-            Prof. Dr. Ing. Rubén Alcides López Santacruz<br>Decano
-        </div>
+    <div class="signatures sec">
+        <div class="signature-line"></div>
+        Lic. Sonia Emilce León Cañete<br>Secretaria
+    </div>
+    <div class="signatures dec">
+        <div class="signature-line"></div>
+        Prof. Dr. Ing. Rubén Alcides López Santacruz<br>Decano
+    </div>
+    <div class="nro_registro">{{$documento->nro_registro}}</div>
 </body>
 </html>
