@@ -40,6 +40,10 @@
             margin: 0;
             padding: 0;
         }
+        .content .body {
+            text-align: justify;
+            text-justify: inter-word;
+        }
 
         .content {
             line-height: 1.6;
@@ -92,14 +96,14 @@
     <img class="qr-code" src="data:image/png;base64,{{ base64_encode($qrCode) }}" alt="QR Code">
     <div class="content">
         <div class="title">
-            <b>CERTIFICADO EN
-            {{ strtoupper($documento->nombre_curso) }}</b>
+            <b>DIPLOMA EN
+            {{ mb_strtoupper($documento->nombre_curso) }}</b>
         </div>
         <div class="body">
             Se confiere la presente Certificación, a
-            <strong>{{ strtoupper($documento->nombre_apellido) }}</strong> con CI Nº: <strong>{{ strtoupper($documento->cic) }}</strong>.
+            <strong>{{ mb_strtoupper($documento->nombre_apellido) }}</strong> con CI Nº: <strong>{{ mb_strtoupper($documento->cic) }}</strong>.
             Por haber culminado satisfactoriamente el {{ $documento->tipoCurso->descripcion }} en
-            <strong>{{ strtoupper($documento->nombre_curso) }}</strong>, programa académico habilitado según Resolución N° {{ strtoupper($documento->numero_resolucion) }}.
+            <strong>{{ mb_strtoupper($documento->nombre_curso) }}</strong>, programa académico habilitado según Resolución N° {{ mb_strtoupper($documento->numero_resolucion) }}.
             {{$periodo}}, completando un total de {{ $documento->carga_horaria }} horas académicas.
         </div>
     </div>
