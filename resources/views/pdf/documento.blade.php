@@ -48,7 +48,7 @@
         .content {
             line-height: 1.6;
             position: absolute;
-            top: 625px;
+            top: 650px;
             width: 60%;
             left: 45%;
             transform: translate(-50%, -50%);
@@ -58,7 +58,7 @@
             text-align: center;
             font-size: 32px;
             width: 80%;
-            margin: 60px auto;
+            margin: 50px auto;
         }
 
         .footer {
