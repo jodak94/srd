@@ -24,7 +24,9 @@ class DocumentoResource extends Resource
 {
     protected static ?string $model = Documento::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $label = 'Diploma';
+    protected static ?string $pluralLabel = 'Diplomas';
 
         public static function form(Form $form): Form
         {

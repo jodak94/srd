@@ -21,5 +21,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Carbon::setLocale('es');
         setlocale(LC_TIME, 'es_ES.UTF-8');
+        \Filament\Resources\Pages\CreateRecord::disableCreateAnother();
     }
 }

@@ -27,7 +27,7 @@
             position: absolute;
             top: 125px;
             right: 275px;
-            width: 90px;
+            width: 110px;
             z-index: 99999;
         }
 
@@ -36,7 +36,7 @@
             border: 1px solid #5b0f0f;
             background: url('{{ $background }}') no-repeat;
             background-size: 100% 100%;
-            font-size: 18px;
+            font-size: 20px;
             margin: 0;
             padding: 0;
         }
@@ -102,7 +102,7 @@
         <div class="body">
             Se confiere la presente Certificación, a
             <strong>{{ mb_strtoupper($documento->nombre_apellido) }}</strong> con CI Nº: <strong>{{ mb_strtoupper($documento->cic) }}</strong>.
-            Por haber culminado satisfactoriamente el {{ $documento->tipoCurso->descripcion }} en
+            Por haber {{ $documento->calidadParticipante->descripcion }} satisfactoriamente el {{ $documento->tipoCurso->descripcion }} en
             <strong>{{ mb_strtoupper($documento->nombre_curso) }}</strong>, programa académico habilitado según Resolución N° {{ mb_strtoupper($documento->numero_resolucion) }}.
             {{$periodo}}, completando un total de {{ $documento->carga_horaria }} horas académicas.
         </div>
@@ -111,13 +111,21 @@
         San Lorenzo, República del Paraguay, {{ \Carbon\Carbon::now()->format('d/m/Y') }}
     </div>
     <div class="signatures sec">
+        @if($config && $config->firma_secretaria)
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(storage_path('app/private/' . $config->firma_secretaria))) }}" style="height: 120px;"><br>
+        @endif
         <div class="signature-line"></div>
-        Lic. Sonia Emilce León Cañete<br>Secretaria
+        {{ $config->nombre_secretaria ?? 'Secretaria' }}<br>Secretaria
     </div>
+
     <div class="signatures dec">
+        @if($config && $config->firma_decano)
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(storage_path('app/private/' . $config->firma_decano))) }}" style="height: 120px;"><br>
+        @endif
         <div class="signature-line"></div>
-        Prof. Dr. Ing. Rubén Alcides López Santacruz<br>Decano
+        {{ $config->nombre_decano ?? 'Decano' }}<br>Decano
     </div>
+
     <div class="nro_registro">{{$documento->nro_registro}}</div>
 </body>
 </html>

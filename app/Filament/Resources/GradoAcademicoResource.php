@@ -17,8 +17,10 @@ class GradoAcademicoResource extends Resource
 {
     protected static ?string $model = GradoAcademico::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Configuraciones';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    protected static ?string $navigationGroup = 'Parámetros';
+    protected static ?string $label = 'Grados académicos';
+    protected static ?string $pluralLabel = 'Grados académicos';
 
     public static function form(Form $form): Form
     {

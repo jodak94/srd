@@ -17,10 +17,10 @@ class CalidadParticipanteResource extends Resource
 {
     protected static ?string $model = CalidadParticipante::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-inbox-stack';
     protected static ?string $label = 'Calidad de Participación';
     protected static ?string $pluralLabel = 'Calidades';
-    protected static ?string $navigationGroup = 'Configuraciones';
+    protected static ?string $navigationGroup = 'Parámetros';
 
     public static function form(Form $form): Form
     {

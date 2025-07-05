@@ -5,6 +5,7 @@ namespace App\Traits;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Carbon\Carbon;
+use App\Models\Configuracion;
 use Storage;
 
 trait GeneratesDocumentoPdf
@@ -27,12 +28,13 @@ trait GeneratesDocumentoPdf
             $fechaInicio->translatedFormat('j \d\e F \d\e Y') . 
             ' y el ' . 
             $fechaFin->translatedFormat('j \d\e F \d\e Y');
-
+        $config = Configuracion::first();
         $pdf = \PDF::loadView('pdf.documento', [
             'documento' => $record,
             'qrCode' => $qrCode,
             'background' => $backgroundb64,
             'periodo' => $periodo,
+            'config' => $config, 
         ])
         ->setPaper('A4', 'landscape')
         ->setOptions([
@@ -41,7 +43,6 @@ trait GeneratesDocumentoPdf
             'defaultFont' => 'Helvetica',
             'dpi' => 124,
         ]);
-
         $filename = 'documento_' . $record->nro_registro . '.pdf';
         Storage::put('documentos/' . $filename, $pdf->output());
 

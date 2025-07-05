@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class DependenciaResource extends Resource
 {
     protected static ?string $model = Dependencia::class;
-    protected static ?string $navigationGroup = 'Configuraciones';
+    protected static ?string $navigationGroup = 'Parámetros';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
