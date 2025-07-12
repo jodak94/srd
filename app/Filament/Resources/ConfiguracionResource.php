@@ -51,6 +51,12 @@ class ConfiguracionResource extends Resource
                     ->image()
                     ->directory('firmas')
                     ->disk('local'),
+
+                Forms\Components\FileUpload::make('sello')
+                    ->label('Sello')
+                    ->image()
+                    ->directory('sello')
+                    ->disk('local'),    
             ]);
     }
 

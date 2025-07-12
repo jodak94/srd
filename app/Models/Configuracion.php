@@ -12,5 +12,6 @@ class Configuracion extends Model
         'firma_decano',
         'nombre_secretaria',
         'firma_secretaria',
+        'sello'
     ];
 }

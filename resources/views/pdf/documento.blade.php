@@ -59,6 +59,7 @@
             font-size: 32px;
             width: 80%;
             margin: 50px auto;
+            line-height: 1.2;
         }
 
         .footer {
@@ -68,6 +69,14 @@
             left: 45%;
             transform: translate(-50%, -50%);
         }
+
+        .sello {
+            position: absolute;
+            top: 1020px;
+            left: calc(50% - 200px);
+            text-align: center;
+        }
+
 
         .signatures{
             position: absolute;
@@ -110,6 +119,12 @@
     <div class="footer">
         San Lorenzo, República del Paraguay, {{ \Carbon\Carbon::now()->format('d/m/Y') }}
     </div>
+    <div class="sello">
+        @if($config && $config->firma_decano)
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(storage_path('app/private/' . $config->sello))) }}" style="height: 220px;"><br>
+        @endif
+    </div>
+
     <div class="signatures sec">
         @if($config && $config->firma_secretaria)
             <img src="data:image/png;base64,{{ base64_encode(file_get_contents(storage_path('app/private/' . $config->firma_secretaria))) }}" style="height: 120px;"><br>
